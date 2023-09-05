@@ -1,0 +1,8 @@
+type Weather {
+  temperature: String!
+  location: String!
+}
+
+type Query {
+  getWeather(location: String!): Weather!
+}
