@@ -1,8 +1,15 @@
 <template>
   <div>
     <select v-model="selectedLocation" @change="fetchWeather">
-      <option v-for="loc in locations" :key="loc" :value="loc">{{ loc }}</option>
+      <option v-for="loc in locations" :key="loc" :value="loc">
+        {{ loc }}
+      </option>
     </select>
+    <wis-weather-card
+      :location-="mockData.location"
+      :temperature="mockData.temperature"
+      :condition="mockData.condition"
+    />
 
     <div v-if="weather">
       Weather for {{ weather.location }}: {{ weather.temperature }}
@@ -11,15 +18,20 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import { useQuery } from '@vue/apollo-composable';
-import gql from 'graphql-tag';
+import { ref } from "vue";
+import { useQuery } from "@vue/apollo-composable";
+import gql from "graphql-tag";
 
 export default {
-  name: 'WeatherDisplay',
+  name: "WeatherDisplay",
   setup() {
-    const locations = ref(['New Hampshire', 'New York', 'California', 'Texas']); 
+    const locations = ref(["New Hampshire", "New York", "California", "Texas"]);
     const selectedLocation = ref(locations.value[0]);
+    const mockData = {
+      location: "New Hampshire",
+      temperature: "50",
+      condition: "Sunny",
+    };
     const weather = ref(null);
 
     const GET_WEATHER = gql`
@@ -33,7 +45,7 @@ export default {
 
     const { refetch } = useQuery(GET_WEATHER, {
       variables: { location: selectedLocation.value },
-      skip: true 
+      skip: true,
     });
 
     const fetchWeather = async () => {
@@ -45,7 +57,7 @@ export default {
 
     fetchWeather();
 
-    return { locations, selectedLocation, weather, fetchWeather };
-  }
+    return { locations, selectedLocation, weather, mockData, fetchWeather };
+  },
 };
 </script>
