@@ -11,6 +11,7 @@ export class WeatherCard {
   @Prop() condition: string;
 
   render() {
+    console.log('hello');
     return (
       <wis-card title={this.location} icon={'http://localhost:4000/assets/rainy.jpeg'}>
         <div class="weather-details">
