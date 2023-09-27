@@ -1,0 +1,35 @@
+{
+  "name": "vue-library",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Rakib Ansary <rakib.saikot@meltwater.com>",
+  "homepage": "https://github.com/meltwater/grimoire-interview#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meltwater/grimoire-interview.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "npm run tsc",
+    "tsc": "tsc -p . --outDir ./dist"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "stencil-library": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/meltwater/grimoire-interview/issues"
+  }
+}

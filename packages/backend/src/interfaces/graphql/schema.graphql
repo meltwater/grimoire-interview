@@ -1,8 +1,38 @@
+enum WeatherType {
+  "Conditions with rain or drizzle"
+  RAIN
+
+  "Clear or mostly clear sky"
+  SUNNY
+
+  "Conditions with thunderstorms or lightning"
+  THUNDERSTORM
+
+  "Conditions with snow or sleet"
+  SNOW
+
+  "Windy or blustery conditions"
+  WINDY
+}
+
+scalar Temperature
+
 type Weather {
-  temperature: String!
+  temperature: Temperature!
   location: String!
+  image: String!
+  weatherType: WeatherType!
 }
 
 type Query {
+  "Fetches weather data for a specific location"
   getWeather(location: String!): Weather!
+
+  "Fetches weather data for all locations in the watch list"
+  getWatchList: [Weather!]!
+}
+
+type Mutation {
+  "Adds locations to the watch list"
+  addToWatchList(locations: [String!]!): Boolean!
 }
