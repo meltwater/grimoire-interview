@@ -12,37 +12,68 @@ Welcome to the Weather App evaluation! This repository contains a weather applic
 
 Here's what's expected of you:
 
-### 1. Codebase Review
+### Hands-on Coding Challenge
 
-After setting up, walk us through the application structure:
+To assess your skills in integration, problem-solving, and design, we've prepared a specific challenge related to our application. Here's a step-by-step guide:
 
-- Discuss your observations on the usage of Domain Driven Design (DDD) in the backend.
-- Reflect on the choice of a mono repo for this project. How do you feel about the structuring? Any improvements?
+#### Setup
 
-### 2. Deployment & CI/CD
+1. **Backend Setup**:
 
-- Share your thoughts on the inclusion of terraform configurations within the mono repo.
-- Discuss your preferred deployment strategies for such a project.
-- How would you envision a CI/CD pipeline for this project?
+   - Start by getting the GraphQL app running locally. This step is crucial as your frontend app will fetch its data from here.
 
-### 3. System Design Challenge
+2. **Stencil Library**:
 
-**Enhancement Proposal**:
+   - Navigate to the `stencil-library` directory.
+   - Install the necessary dependencies using `npm install`.
+   - Remember to execute `npm run build` every time there's an update to the library. This ensures that the latest components are available for use.
 
-We're aiming to enhance our weather application by allowing users to set up weather alerts for their preferred locations. For instance, when a user's specified condition is met, like a temperature drop below freezing, the system should send out an alert. With a vast user base and varying alert preferences, how would you design a notification system that is robust, scalable, and cost-effective? Remember, timely alerts are essential, especially during sudden severe weather events.
+3. **Vue Library**:
 
-Jot down or sketch your solution, considering scalability, robustness, cost-effectiveness, and the user experience.
+   - This library plays a pivotal role in integrating Stencil components into our Vue 3 application.
+   - Navigate to the `vue-library` directory.
+   - Install the necessary dependencies.
 
-### 4. Hands-on Coding Challenge
+4. **Vue 3 App (wis-app)**:
+   - Navigate to the `wis-app` directory.
+   - Execute `npm install` to initialize the app dependencies.
+   - Launch the app locally with `npm run dev`.
 
-To gauge your coding prowess, we've set up a challenge related to our application:
+#### Challenge
 
-- Enhance the backend endpoint to provide a 3-day forecast for a given location. This forecast should indicate daily maximum and minimum temperatures. You can mock this data, but the focus is on your coding approach, integration into our current setup, and adherence to best practices.
+Once you've set everything up, you'll be presented with an app comprising two distinct sections:
 
-**Time Limit**: 45 minutes.
+1. **By Location**:
+
+   - This UI segment, located on the right side, enables users to choose a location from a dropdown and subsequently view the weather data pertinent to that location.
+
+   **Task 1**:
+
+   - Your first task is to refine the styles in the "By Location" segment. Aim for a visually compelling, intuitive layout that promises an outstanding user experience.
+
+2. **WatchList**:
+
+   - This section initially displays an empty interface.
+
+   **Task 2**:
+
+   - Integrate the given GraphQL mutation to allow users to append multiple locations to their watchlist.
+
+     ```graphql
+     mutation Mutation($locations: [String!]!) {
+       addToWatchList(locations: $locations)
+     }
+     ```
+
+   - Once locations have been added, devise a method to showcase the weather for each location using the Weather Card component. You can opt for either a carousel or an infinite scroll view.
+
+#### Deliverables
+
+1. A revamped "By Location" segment boasting enhanced styles and user experience.
+2. A fully functional "WatchList" segment where users can effortlessly add locations and browse weather details in an engaging and user-friendly design.
+
+**Time Limit**: 90 minutes.
 
 ---
 
-Remember, the focus is not just on getting the right answer but understanding your approach, problem-solving skills, and thought processes.
-
-Good luck!
+Please remember that alongside functional solutions, we're eager to grasp your thought processes, methodologies, and approach. We greatly value coding best practices, innovation, and problem-solving prowess. We wish you the best of luck with the challenge and hope you enjoy it!
