@@ -10,9 +10,9 @@ const fetchWeatherData = (location) => {
 
 const fetchWeatherImage = (location) => {
   const predefinedImages = {
-    Paris: `${BASE_ASSET_URL}/thunder.png`,
-    London: `${BASE_ASSET_URL}/rain.png`,
-    Berlin: `${BASE_ASSET_URL}/sunny.png`,
+    Paris: `${BASE_ASSET_URL}/thunder.jpeg`,
+    London: `${BASE_ASSET_URL}/rain.jpeg`,
+    Berlin: `${BASE_ASSET_URL}/sunny.jpeg`,
   };
 
   if (predefinedImages[location]) {
@@ -25,8 +25,9 @@ const fetchWeatherImage = (location) => {
 
   const imagePool = [
     `${BASE_ASSET_URL}/rainy.jpeg`,
-    `${BASE_ASSET_URL}/sunny.png`,
-    `${BASE_ASSET_URL}/cloudy.png`,
+    `${BASE_ASSET_URL}/sunny.jpeg`,
+    `${BASE_ASSET_URL}/cloudy.jpeg`,
+    `${BASE_ASSET_URL}/thunder.jpeg`,
   ];
 
   const randomImage = imagePool[Math.floor(Math.random() * imagePool.length)];
