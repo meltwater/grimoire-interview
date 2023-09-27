@@ -4,15 +4,13 @@
   "workspaces": [
     "packages/*"
   ],
-  "dependencies": {
-    "@apollo/client": "^3.8.2",
-    "graphql": "^16.8.0"
-  },
   "devDependencies": {
+    "concurrently": "^8.2.1",
     "lerna": "^7.2.0"
   },
   "scripts": {
-    "bootstrap": "lerna bootstrap",
-    "test": "lerna run test"
+    "start:app": "concurrently \"lerna run --stream --scope backend start\" \"npm run build:libs && npm run dev:app\"",
+    "build:libs": "lerna run --stream --scope stencil-library build && lerna run --stream --scope vue-library build",
+    "dev:app": "lerna run --stream --scope wis-app dev"
   }
 }
