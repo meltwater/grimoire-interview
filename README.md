@@ -7,6 +7,12 @@ Welcome to the Weather App evaluation! This repository contains a weather applic
 1. Clone the repository.
 2. Navigate to the root directory.
 3. Follow the specific READMEs in the frontend and backend directories for individual setup instructions.
+4. From the workspace the run the following commands
+
+```bash
+npm i
+npm run bootstrap
+```
 
 ## Evaluation Process
 
